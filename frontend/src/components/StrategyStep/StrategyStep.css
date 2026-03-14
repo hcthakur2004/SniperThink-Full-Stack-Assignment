@@ -1,0 +1,228 @@
+.strategy-step {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.strategy-step__card {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 3rem;
+  will-change: transform;
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+
+.strategy-step__card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+}
+
+.strategy-step__inner {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.strategy-step__number {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0.15;
+  font-variant-numeric: tabular-nums;
+}
+
+.strategy-step__icon-wrap {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.strategy-step__icon {
+  font-size: 2rem;
+}
+
+.strategy-step__text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.strategy-step__subtitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+
+.strategy-step__title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.strategy-step__desc {
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+  font-size: 0.95rem;
+  margin: 0.25rem 0;
+}
+
+.strategy-step__stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+
+.strategy-step__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.strategy-step__stat strong {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.strategy-step__stat span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.strategy-step__cta {
+  margin-top: 1.25rem;
+  align-self: flex-start;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  border: 2px solid var(--step-color);
+  background: transparent;
+  color: var(--step-color);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.02em;
+}
+
+.strategy-step__cta:hover {
+  background: var(--step-gradient);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.strategy-step__cta:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Scroll reveal progress bar (step 3) */
+.strategy-step__scroll-reveal-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: left;
+  border-radius: 0 0 24px 24px;
+  transition: none;
+}
+
+.strategy-step__scroll-hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  transition: opacity 0.3s;
+}
+
+/* Typewriter reveal animation */
+.typewriter-reveal .strategy-step__title {
+  animation: typeReveal 0.8s ease-out both;
+}
+
+.typewriter-reveal .strategy-step__desc {
+  animation: typeReveal 0.8s ease-out 0.2s both;
+}
+
+.typewriter-reveal .strategy-step__stats {
+  animation: typeReveal 0.8s ease-out 0.4s both;
+}
+
+.typewriter-reveal .strategy-step__cta {
+  animation: typeReveal 0.8s ease-out 0.6s both;
+}
+
+@keyframes typeReveal {
+  from { opacity: 0; clip-path: inset(0 100% 0 0); }
+  to { opacity: 1; clip-path: inset(0 0% 0 0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .strategy-step {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
+
+  .strategy-step__card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .strategy-step__inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  .strategy-step__number {
+    font-size: 3rem;
+    position: absolute;
+    top: 1.25rem;
+    right: 1.5rem;
+    opacity: 0.08;
+  }
+
+  .strategy-step__icon-wrap {
+    width: 60px;
+    height: 60px;
+  }
+
+  .strategy-step__title {
+    font-size: 1.6rem;
+  }
+
+  .strategy-step__stats {
+    gap: 1.25rem;
+  }
+
+  .strategy-step__stat strong {
+    font-size: 1.2rem;
+  }
+}

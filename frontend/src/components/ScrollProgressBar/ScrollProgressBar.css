@@ -1,0 +1,17 @@
+.scroll-progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 9999;
+}
+
+.scroll-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6C63FF, #00C9FF, #2ECC71);
+  transition: width 0.05s linear;
+  border-radius: 0 2px 2px 0;
+  box-shadow: 0 0 10px rgba(108, 99, 255, 0.6);
+}

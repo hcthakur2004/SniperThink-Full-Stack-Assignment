@@ -1,0 +1,102 @@
+.step-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+.step-indicator__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.step-indicator__dot {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  z-index: 2;
+}
+
+.step-indicator__dot.active {
+  border-color: var(--step-color);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.step-indicator__dot.current {
+  background: var(--step-color);
+  border-color: var(--step-color);
+  box-shadow: 0 0 20px var(--step-color);
+  transform: scale(1.2);
+}
+
+.step-indicator__num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.step-indicator__dot.active .step-indicator__num,
+.step-indicator__dot.current .step-indicator__num {
+  color: #fff;
+}
+
+.step-indicator__line {
+  width: 2px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: background 0.5s ease;
+}
+
+.step-indicator__line.filled {
+  background: var(--step-color);
+}
+
+.step-indicator__label {
+  position: absolute;
+  right: 46px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.step-indicator__dot.current ~ .step-indicator__label,
+.step-indicator__item:has(.current) .step-indicator__label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 768px) {
+  .step-indicator {
+    right: 0.75rem;
+  }
+  .step-indicator__label {
+    display: none;
+  }
+  .step-indicator__dot {
+    width: 28px;
+    height: 28px;
+  }
+  .step-indicator__line {
+    height: 28px;
+  }
+}
