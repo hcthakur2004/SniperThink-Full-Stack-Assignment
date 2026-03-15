@@ -20,9 +20,11 @@ export function useInterestForm() {
     setMessage("");
 
     try {
-      await axios.post(`${API_URL}/api/interest`, { name, email, step });
+      const response = await axios.post(`${API_URL}/api/interest`, { name, email, step });
       setStatus("success");
-      setMessage("🎉 We've received your interest! We'll be in touch soon.");
+      setMessage(
+        response?.data?.message || "We've received your interest! We'll be in touch soon."
+      );
     } catch (err) {
       setStatus("error");
       setMessage(

@@ -56,6 +56,9 @@ export async function saveInterestSubmission(submission) {
       throw error;
     }
 
+    console.warn(
+      `Interest submission fallback activated: ${error.code || "UNKNOWN"} ${error.message}`
+    );
     await appendToFallbackFile(submission);
     return { storage: "file-fallback" };
   }
